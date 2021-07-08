@@ -1,90 +1,33 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 
 <head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DFMJVZDX83"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-DFMJVZDX83');
-</script>
-
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>RegexTester - Build, test and debug regex!</title>
+	<meta name="viewport" content="width=device-width">
 	<link href="css/style.css" rel="stylesheet" type="text/css" />
-
-
-	<meta property="og:url" content="https://milad-mehri.github.io/RegexTester/index.html" />
-	<meta title="Regex Tester - Build, test and debug regex!" />
-	<meta charset="utf-8" />
-	<meta property="og:title" content="Regex Tester - Build, test and debug regex!" />
-	<meta property="og:site_name" content="" />
-	<meta property="og:description" content="" />
-	<meta property="og:image" content="https://i.ibb.co/PQy8326/image.png" />
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="theme-color" content="#a4a5a8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=1024, initial-scale=1">
+	<title>RegexTester - Build, test and debug regex!</title>
 </head>
 
 <body>
-
-
-	<div class="topnav">
-
-		<a class="socials" style="padding-right: 16vw" href="https://discord.com/"> <svg width="40" height="31"
-				viewBox="0 0 40 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path
-					d="M33.8838 2.59624C31.2945 1.38337 28.526 0.501913 25.6315 0C25.276 0.643434 24.8607 1.50887 24.5744 2.19732C21.4975 1.73405 18.4489 1.73405 15.4286 2.19732C15.1423 1.50887 14.7176 0.643434 14.3589 0C11.4613 0.501913 8.68959 1.38661 6.10032 2.60267C0.877738 10.5039 -0.538019 18.2088 0.169861 25.8044C3.63375 28.3942 6.99068 29.9674 10.291 30.9968C11.1058 29.874 11.8326 28.6805 12.4586 27.4226C11.2663 26.969 10.1242 26.4092 9.04512 25.7594C9.3314 25.547 9.61143 25.325 9.88197 25.0966C16.4637 28.1786 23.6148 28.1786 30.1179 25.0966C30.3916 25.325 30.6716 25.547 30.9547 25.7594C29.8725 26.4124 28.7273 26.9722 27.5349 27.4258C28.161 28.6805 28.8846 29.8773 29.7026 31C33.0061 29.9705 36.3661 28.3974 39.83 25.8044C40.6606 16.9992 38.4111 9.36501 33.8838 2.59624ZM13.3553 21.1332C11.3795 21.1332 9.75925 19.2866 9.75925 17.0378C9.75925 14.789 11.3449 12.9392 13.3553 12.9392C15.3657 12.9392 16.9859 14.7858 16.9513 17.0378C16.9545 19.2866 15.3657 21.1332 13.3553 21.1332ZM26.6446 21.1332C24.6688 21.1332 23.0485 19.2866 23.0485 17.0378C23.0485 14.789 24.6342 12.9392 26.6446 12.9392C28.6549 12.9392 30.2752 14.7858 30.2406 17.0378C30.2406 19.2866 28.6549 21.1332 26.6446 21.1332Z"
-					fill="white" />
-			</svg></a>
-
-		<a class="socials" href="https://github.com/milad-mehri">
-			<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<g filter="url(#filter0_i)">
-					<path
-						d="M0 17.4304C0 25.1433 4.86625 31.6577 11.6237 33.9674C12.4737 34.1201 12.7925 33.5972 12.7925 33.14C12.7925 32.7256 12.7712 31.3532 12.7712 29.8934C8.5 30.699 7.395 28.8251 7.055 27.8449C6.86375 27.3438 6.035 25.7969 5.3125 25.3828C4.7175 25.0559 3.8675 24.2499 5.29125 24.2282C6.63 24.2064 7.58625 25.4917 7.905 26.0146C9.435 28.6509 11.8788 27.9106 12.8563 27.4527C13.005 26.3198 13.4512 25.5567 13.94 25.1212C10.1575 24.6857 6.205 23.1824 6.205 16.5156C6.205 14.6196 6.86375 13.0509 7.9475 11.8309C7.7775 11.3954 7.1825 9.60859 8.1175 7.21147C8.1175 7.21147 9.54125 6.75422 12.7925 8.99826C14.1525 8.60633 15.5975 8.41003 17.0425 8.41003C18.4875 8.41003 19.9325 8.60633 21.2925 8.99826C24.5437 6.73244 25.9675 7.2118 25.9675 7.2118C26.9025 9.60826 26.3075 11.3947 26.1375 11.8305C27.2212 13.0505 27.88 14.5975 27.88 16.5149C27.88 23.2038 23.9062 24.6851 20.1237 25.1212C20.74 25.6659 21.2713 26.7117 21.2713 28.3457C21.2713 30.6772 21.25 32.5508 21.25 33.1393C21.25 33.5966 21.5687 34.1409 22.4187 33.9667C29.1337 31.658 34 25.1219 34 17.4307C34 7.7997 26.3925 0 17 0C7.6075 0 0 7.80003 0 17.4304Z"
-						fill="white" />
-				</g>
-				<defs>
-					<filter id="filter0_i" x="0" y="0" width="34" height="34" filterUnits="userSpaceOnUse"
-						color-interpolation-filters="sRGB">
-						<feFlood flood-opacity="0" result="BackgroundImageFix" />
-						<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-						<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-							result="hardAlpha" />
-						<feOffset />
-						<feGaussianBlur stdDeviation="1" />
-						<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
-						<feColorMatrix type="matrix"
-							values="0 0 0 0 0.258824 0 0 0 0 0.137255 0 0 0 0 0.431373 0 0 0 0.70355 0" />
-						<feBlend mode="normal" in2="shape" result="effect1_innerShadow" />
-					</filter>
-				</defs>
-			</svg></a>
-		<a class="title" href="index.html">Regex <span style="color: #FFD122">Tester</span></a>
-		<a class="nav-button" style="padding-right:25vw" href="index.html">Home</a>
-		<a class="nav-button" href="tester.html">Start</a>
-
-	</div>
-	</div>
-	<div class="home-container">
-		<div class="content">
-
-			<h1>Build, test and <br>debug regex!</h1>
-			<p class="meet">Created by Milad Mehri</p>
-
-			<a href="tester.html">
-				<button class="start-button" href="tester.html">Get Started</button>
-			</a>
-
-
+	<div class="navBar">
+		<div class="title">
+			<div class="text">
+				<a href="/index.html">Regex<span style="color:#FFD122;">Tester</span></a>
+			</div>
 		</div>
+		<div class="buttons">
+			<a href="/tester.html">Start</a>
+			<a href="/tester.html">Github</a>
+			<!-- Redirects to /tester -->
+		</div>
+	</div>
+
+	<div class="main">
+		<p>Build, test and<br>debug regex!</p>
+		<a href="http://milad.wtf">Created by Milad Mehri</a>
+		<a style="background-color: grey;margin-top: 50px;padding: 10px;" href="tester.html">Start Now</a>
+
+
 	</div>
 
 </body>
