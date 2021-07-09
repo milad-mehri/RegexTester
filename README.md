@@ -7,4 +7,4 @@ RegexTester helps you visualize and debug your regular expressions in a simple a
 
 Usage example:
 
-![Demo](assets/demo.PNG})
+![Demo](assets/demo.PNG)
