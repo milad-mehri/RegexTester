@@ -3,72 +3,57 @@
 
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
- 
-	<meta property="og:url" content="https://milad-mehri.github.io/RegexTester/tester.html" />
-	<meta title="Regex Tester - Build, test and debug regex!" />
-	<meta charset="utf-8" />
-	<meta property="og:title" content="Regex Tester - Build, test and debug regex!" />
-	<meta property="og:site_name" content="" />
-	<meta property="og:description" content="" />
-	<meta property="og:image" content="https://i.ibb.co/PQy8326/image.png" />
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="theme-color" content="#a4a5a8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link href="css/tester.css" rel="stylesheet" type="text/css" />
-<meta name="viewport" content="width=1024, initial-scale=1">
 	<title>RegexTester - Build, test and debug regex!</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>
-	<div class="topnav">
-		<a class="title" href="index.html">Regex <span style="color: #FFD122">Tester</span></a>
-	</div>
-	<div class="app-container">
-		<div class="regex-input">
-			<h1>REGULAR EXPRESSION</h1>
-			<div class="regexinput">
-				<label style="text-align: right; clear: both; float:left;">/</label>
-				<label>/gi</label>
-				<input spellcheck="false" type="text" id=regex name="regex" value="a" onkeyup="update()">
+	<div class="navBar">
+		<div class="title">
+			<div class="text">
+				<a href="index.html">Regex<span style="color:#FFD122;">Tester</span></a>
 			</div>
 		</div>
-		<div class="testing-input">
-			<h1>YOUR TEXT</h1>
-			<textarea spellcheck="false" id=textarea onkeyup="update()"
-				name="textarea">This text will be highlighted if it matches with your regex!</textarea>
-			<div id=output class="output">
-				This text will be highlighted if it matches with your regex!
-			</div>
+		<div class="buttons">
+			<a href="tester.html"><i style="font-size:20px;" class="fas fa-play-circle"></i>  </a>
+			<a href="https://github.com/milad-mehri/RegexTester"><i style="font-size:20px;" class="fab fa-github"></i></a>
+			
 		</div>
 	</div>
+	<div class="invalid" id=invalid>
+		<div class="msg" id="invalidText">
+<p>
+			Invalid regular expression flag 
+		</p>	</div>
+	</div>
+	<div class="input">
+
+		<!-- /<input type="text" value="test" id=regex> 
+		/textInput
+		<input type="text" value="gi" id=code>  -->
+
+		/<span id="regex" class="textInput regex" contenteditable="true" onkeyup="update()">a|b</span>
+
+		/
+		<span id="code" class="textInput code" contenteditable="true" onkeyup="update()">gi</span>
+	</div>
+
+	<div class="main">
+
+
+
+		<div class="backdrop">
+			<div class="highlights" id=highlights><mark>TEST</mark></div>
+		</div>
+		<textarea spellcheck="false" id=textarea onkeyup="update()"> TEST</textarea>
+
+	</div>
+
+	<script src="js/index.js"></script>
 </body>
-<script>
-	function copyRegex() {
-
-
-		var copyText = document.getElementById("regex").value;
-		const copy = document.createElement('textarea');
-		copy.value = `/${copyText}/gi`;
-		document.body.appendChild(copy);
-		copy.select();
-		document.execCommand('copy');
-		document.body.removeChild(copy);
-	}
-
-
-	function update() {
-
-		a = textarea.value;
-		reg = new RegExp(regex.value, 'gi');
-		newData = a.replace(reg, (match) => {
-			return `<mark>${match}</mark>`
-		});
-		output.innerHTML = newData;
-
-	}
-
-</script>
 
 </html>

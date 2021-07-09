@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
-/*  this is font import so I can use later in code ^ */
 
-/* Connects to index.html file */
 
 html, body {
     margin: 0;
@@ -50,7 +48,7 @@ html, body {
 .navBar .title a {
     text-decoration: none;
     color: white;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 30px;
 }
 
@@ -79,10 +77,7 @@ html, body {
 /* THIS IS MOBILE  */
 
 @media only screen and (max-width: 500px) {
-    .buttons a {
-        visibility: hidden;
-        display: none;
-    }
+ 
     .navBar .title a {
         font-size: 20px;
     }
