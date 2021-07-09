@@ -26,8 +26,7 @@ html, body {
 
 .code {
     max-width: 10%;
-      overflow: scroll;
-
+    overflow: scroll;
 }
 
 .regex {
@@ -174,7 +173,6 @@ textarea:focus {
 }
 
 @media only screen and (max-width: 500px) {
-
     .navBar .title a {
         font-size: 20px;
     }

@@ -16,8 +16,8 @@ function update() {
     var text = document.getElementById("invalidText");
     try {
         reg = new RegExp(document.getElementById('regex').innerHTML, document.getElementById('code').innerHTML);
-    } catch(e) {
-        text.innerHTML= "Error: " + e.message
+    } catch (e) {
+        text.innerHTML = "Error: " + e.message
         error.style.visibility = "visible"
         highlights.innerHTML = ""
         return;
