@@ -1,92 +1,270 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+/* Global & Base Styles */
+* {
+    box-sizing: border-box;
+}
 
+html {
+    scroll-behavior: smooth;
+}
 
 html, body {
     margin: 0;
     padding: 0;
-    background-color: #191919;
-    font-family: Open Sans;
+    background-color: #121212; /* Slightly darker base background */
+    color: #e0e0e0; /* Light grey for default text for better contrast */
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
 }
 
-.main a {
-    color: white;
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px; /* Side padding for content within container */
+}
+
+a {
+    color: #FFD122; /* Accent color for links */
     text-decoration: none;
-    font-size: 30px;
 }
 
-
-
-.main a:hover {
-    color: #bbb;
+a:hover {
+    color: #fff; /* Brighter hover for links */
+    text-decoration: underline;
 }
 
-.main {
-    margin-left: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-    flex-direction: column;
-    height: calc(100vh - 150px);
-}
-
-.main p {
-    font-size: 70px;
-    color: #FFD122;
-    font-weight: bold;
-}
-
+/* Header (.navBar) */
 .navBar {
-    background-color: #272828;
+    background-color: #1f1f1f; /* Slightly different from body */
     color: white;
-    width: 100%;
-    height: 70px;
+    height: auto; /* Allow content to define height */
+    padding: 15px 0; /* Vertical padding */
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between; /* Align title left, buttons right */
     align-items: center;
+    border-bottom: 1px solid #333; /* Subtle separator */
+    position: sticky; /* Sticky header */
+    top: 0;
+    z-index: 1000;
+}
+
+.navBar .container { /* Use container for nav content */
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 100%; /* Override default container width if needed */
 }
 
 .navBar .title a {
-    text-decoration: none;
-    color: white;
-    font-weight: 700;
-    font-size: 30px;
+    font-size: 28px; /* Adjust as needed */
+    font-weight: 700; /* Added for emphasis */
+    transition: color 0.3s ease, opacity 0.3s ease; /* Add base transition */
 }
-
-.navBar .title .text:hover {
+.navBar .title a:hover { /* Added hover for opacity */
     opacity: 0.75;
-    cursor: pointer;
+}
+.navBar .title span { /* For the "Tester" part */
+    color:#FFD122;
 }
 
-.navBar .title {
+
+.navBar .buttons a {
+    margin-left: 20px; /* Use margin-left for spacing between buttons */
+    margin-right: 0; /* Remove previous right margin */
+    font-size: 22px; /* Slightly larger icons */
+    transition: color 0.3s ease, opacity 0.3s ease; /* Add base transition */
+}
+.navBar .buttons a:hover { /* Added hover for opacity, though color change is primary */
+    opacity: 0.75;
+}
+
+/* Section Styling (General) */
+main section {
+    padding: 60px 0; /* Vertical padding for sections */
+    text-align: center; /* Default center alignment for section content */
+    opacity: 0; /* Start transparent for fadeIn animation */
+    animation: fadeIn 1s ease-out forwards;
+}
+
+/* Stagger section animations */
+#hero {
+    animation-delay: 0s; /* Hero can fade in immediately */
+}
+#features {
+    animation-delay: 0.4s; /* Features section slightly later */
+}
+#cta {
+    animation-delay: 0.6s; /* CTA even later */
+}
+
+main section:nth-child(even) { /* Optional: alternate section backgrounds */
+    background-color: #1c1c1c;
+}
+
+main h2 { /* Common styling for section titles */
+    font-size: 36px;
+    color: #FFD122;
+    margin-bottom: 40px;
+}
+
+/* Hero Section (#hero) */
+#hero {
+    min-height: 70vh; /* Adjust height */
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/random/1600x900/?technology,abstract,code') no-repeat center center/cover; /* Example background */
+    color: #fff; /* Ensure text is visible on background */
 }
 
-.buttons a {
+#hero p { /* Tagline */
+    font-size: 50px;
+    color: #FFD122; /* Changed to white for better contrast on image */
+    font-weight: bold;
+    line-height: 1.3;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Add text shadow for readability */
+}
+
+/* Features Section (#features) */
+#features .feature-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 30px; /* Space between feature items */
+    text-align: left; /* Align text left within feature items */
+}
+
+#features .feature-item {
+    background-color: #272828;
+    padding: 30px;
+    border-radius: 8px;
+    flex-basis: calc(33.333% - 30px); /* Approx 3 columns, accounting for gap */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow to transition */
+}
+
+#features .feature-item:hover {
+    transform: translateY(-5px); /* Lift item on hover */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3); /* Enhanced shadow */
+}
+
+#features .feature-item h3 {
+    font-size: 22px;
+    color: #FFD122;
+    margin-top: 0; /* Remove default margin if any */
+    margin-bottom: 15px;
+}
+
+#features .feature-item p {
+    font-size: 16px;
+    color: #ccc;
+}
+
+.feature-icon {
+    color: #FFD122; /* Accent color */
+    margin-bottom: 15px;
+    display: block; /* Ensure it takes its own line or adjust display if needed */
+}
+
+/* CTA Section (#cta) */
+#cta .cta-button {
+    display: inline-block;
+    background-color: #FFD122;
+    color: #191919;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#cta .cta-button:hover {
+    background-color: #fff;
+    color: #191919;
     text-decoration: none;
-    margin-right: 20px;
-    color: white;
+    transform: translateY(-3px);
 }
 
-.buttons a:hover {
-    text-decoration: none;
-    color: #bbb;
+/* Footer (footer) */
+footer {
+    background-color: #1f1f1f;
+    color: #aaa;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 14px;
+    border-top: 1px solid #333;
 }
 
-/* THIS IS MOBILE  */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+footer a {
+    color: #FFD122;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Responsiveness (Media Queries) */
+/* For Tablets */
+@media only screen and (max-width: 992px) {
+    #hero p { font-size: 40px; }
+    main h2 { font-size: 30px; }
+    #features .feature-item {
+        flex-basis: calc(50% - 20px); /* 2 columns */
+    }
+}
+
+/* For Mobile */
+@media only screen and (max-width: 767px) {
+    .navBar .container {
+        flex-direction: column; /* Stack title and buttons */
+        align-items: center; /* Center items when stacked */
+    }
+    .navBar .title {
+        margin-bottom: 10px;
+    }
+    .navBar .buttons {
+        display: flex; /* Ensure buttons are in a row */
+        justify-content: center; /* Center buttons */
+        width: 100%; /* Take full width for centering */
+    }
+    .navBar .buttons a {
+        font-size: 20px;
+        margin: 0 10px;
+    }
+
+    #hero {
+        min-height: 50vh;
+        padding-top: 20px; /* Add padding if navbar overlaps */
+        padding-bottom: 20px;
+    }
+    #hero p { font-size: 30px; }
+    main h2 { font-size: 28px; }
+
+    #features .feature-item {
+        flex-basis: 100%; /* 1 column */
+    }
+    #features .feature-list {
+        gap: 20px;
+    }
+
+    #cta .cta-button { padding: 12px 25px; font-size: 18px; }
+    footer { font-size: 13px; }
+}
 
 @media only screen and (max-width: 500px) {
- 
-    .navBar .title a {
-        font-size: 20px;
-    }
-
-    .main p {
-        font-size: 30px;
-    }
-    .main a {
-        font-size: 10px;
-    }
-
+    .navBar .title a { font-size: 24px; } /* Example adjustment */
+    #hero p { font-size: 28px; }
+    main h2 { font-size: 24px; }
 }
