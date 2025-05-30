@@ -15,23 +15,42 @@ function update() {
     var error = document.getElementById("invalid");
     var text = document.getElementById("invalidText");
     try {
-        reg = new RegExp(document.getElementById('regex').innerHTML, document.getElementById('code').innerHTML);
+        reg = new RegExp(document.getElementById('regex').value, document.getElementById('code').value);
     } catch (e) {
         text.innerHTML = "Error: " + e.message
         error.style.visibility = "visible"
-        highlights.innerHTML = ""
+        document.getElementById('highlights').innerHTML = ""; // Corrected this line
         return;
     }
     error.style.visibility = "hidden"
     console.log('err')
+
+    let textarea = document.getElementById('textarea');
+    let highlights = document.getElementById('highlights');
+
     newData = textarea.value.replace(reg, (match) => {
         return `<mark>${match}</mark>`
     });
 
 
     highlights.innerHTML = newData;
+    syncScroll();
 }
-window.onload = update;
+
+function syncScroll() {
+    let highlights = document.getElementById('highlights');
+    let textarea = document.getElementById('textarea');
+    highlights.scrollTop = textarea.scrollTop;
+    highlights.scrollLeft = textarea.scrollLeft;
+}
+
+window.onload = function() {
+    update(); // Initial update
+    document.getElementById('textarea').addEventListener('input', update);
+    document.getElementById('textarea').addEventListener('scroll', syncScroll);
+    document.getElementById('regex').addEventListener('keyup', update);
+    document.getElementById('code').addEventListener('keyup', update);
+};
 
 
 

@@ -57,17 +57,38 @@ body {
     overflow: hidden;
 }
 
+/* Style for the new input fields */
+input#regex, input#code {
+    background-color: #272828; /* Match navbar or other input fields */
+    color: #FFD122; /* Prominent color for regex/flags */
+    border: 1px solid #555;
+    padding: 8px 10px;
+    font-family: 'Open Sans', sans-serif; /* Consistent font */
+    font-size: 16px;
+    margin: 0 5px; /* Adjust spacing as needed */
+    border-radius: 4px; /* Optional: rounded corners */
+    overflow-x: auto; /* Allow horizontal scrolling for long text */
+    /* text-overflow: ellipsis; */ /* Alternative for overflow, if scrolling not desired */
+}
+
+input#regex {
+    width: 250px; /* Or a flexible width */
+}
+
+input#code {
+    width: 60px; /* For flags */
+}
+
 .input {
-    padding-left: 5px;
-    margin-top: 15px;
-    background-color: #272828;
-    padding: 5px;
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    color: grey;
-    font-size: 20px;
-    width: 70%;
+    justify-content: center; /* Changed from flex-start */
+    padding: 15px 0; /* Changed padding */
+    background-color: #1e1e1e; /* Changed background color */
+    margin-top: 15px; /* Kept */
+    color: grey; /* Kept for '/' separators */
+    font-size: 20px; /* Kept for '/' separators */
+    width: 70%; /* Kept */
 }
 
 *, *::before, *::after {
@@ -75,51 +96,54 @@ body {
 }
 
 .backdrop {
-    margin: 50px;
-    width: 70%;
+    margin: 50px; /* This might need adjustment if width is 100% of main and main has padding */
+    width: 70%; /* Keep for now, will adjust if it needs to be full width of .main */
+    position: relative; /* For positioning children */
+    height: calc(100vh - 450px); /* Exists */
+    background-color: #272828; /* Exists */
+    overflow: hidden; /* Changed from auto */
+    /* transition: transform 1s; */ /* Exists, commented out as pointer-events is removed */
 }
 
-.backdrop, textarea, .highlights {
-    height: calc(100vh - 450px);
-}
-
-.highlights, textarea {
-    padding: 10px;
-    font: 20px/28px 'Open Sans', sans-serif;
-    letter-spacing: 1px;
-    position: absolute;
-    width: 70%;
-    overflow: hidden;
-}
-
-.backdrop {
-    background-color: #272828;
-    overflow: auto;
-    pointer-events: none;
-    transition: transform 1s;
+/* Shared styles for textarea and highlights */
+textarea, .highlights {
+    padding: 10px; /* Exists */
+    font: 20px/28px 'Open Sans', sans-serif; /* Exists */
+    letter-spacing: 1px; /* Exists */
+    position: absolute; /* Exists */
+    top: 0; /* New */
+    left: 0; /* New */
+    width: 100%; /* Changed from 70% to fill backdrop */
+    height: 100%; /* New, to fill backdrop */
+    margin: 0; /* New for .highlights, exists for textarea */
+    overflow: auto; /* Changed from hidden, CRUCIAL for individual scrolling */
+    box-sizing: border-box; /* Important for width/height including padding/border */
 }
 
 .highlights {
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    color: transparent;
-    width: 70%;
+    white-space: pre-wrap; /* Exists */
+    word-wrap: break-word; /* Exists */
+    color: white; /* Changed from transparent - text should be visible */
+    z-index: 1; /* New */
+    pointer-events: none; /* New */
+    border: 1px solid transparent; /* New, for alignment */
 }
 
 textarea {
-    display: block;
-    margin: 0;
-    border-radius: 0;
-    color: white;
-    background-color: transparent;
-    overflow: hidden;
-    resize: none;
+    display: block; /* Exists */
+    border-radius: 0; /* Exists */
+    color: transparent; /* Changed from white - text invisible */
+    background-color: transparent; /* Exists */
+    resize: none; /* Exists */
+    z-index: 2; /* New */
+    caret-color: white; /* New */
+    border: 1px solid #555; /* New, for textarea visibility */
 }
 
 mark {
     border-radius: 3px;
-    color: transparent;
-    background-color: grey;
+    color: white; /* Text inside mark should be visible */
+    background-color: #555; /* Adjusted background color */
 }
 
 textarea:focus {

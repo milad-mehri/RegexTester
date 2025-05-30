@@ -48,10 +48,10 @@
 		/textInput
 		<input type="text" value="gi" id=code>  -->
 
-		/<span id="regex" class="textInput regex" contenteditable="true" onkeyup="update()">a|b</span>
+		/<input type="text" id="regex" class="textInput regex" value="a|b">
 
 		/
-		<span id="code" class="textInput code" contenteditable="true" onkeyup="update()">gi</span>
+		<input type="text" id="code" class="textInput code" value="gi">
 	</div>
 
 	<div class="main">
@@ -60,8 +60,8 @@
 
 		<div class="backdrop">
 			<div class="highlights" id=highlights><mark>TEST</mark></div>
+		<textarea spellcheck="false" id="textarea"> This regex will match with all "a" and "b" letters</textarea>
 		</div>
-		<textarea spellcheck="false" id=textarea onkeyup="update()"> This regex will match with all "a" and "b" letters</textarea>
 
 	</div>
 
